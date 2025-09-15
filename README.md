@@ -1,0 +1,2 @@
+# LegendaryOS
+Website of LegendaryOS.
