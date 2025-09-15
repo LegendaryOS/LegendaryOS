@@ -1,1 +1,104 @@
-
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LegendaryOS - O nas</title>
+    <link rel="icon" type="image/png" href="LegendaryOS-nobackground.png.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background-color: #09023b;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        .navbar {
+            background: linear-gradient(to right, #10047d, #220dc4);
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        .navbar img {
+            height: 60px;
+            transition: transform 0.3s;
+        }
+        .navbar img:hover {
+            transform: scale(1.1);
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+        .nav-links li {
+            margin-left: 20px;
+        }
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .nav-links a:hover {
+            background-color: #8302de;
+            color: #ffffff;
+        }
+        .content {
+            text-align: center;
+            padding: 50px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .content h1 {
+            font-size: 36px;
+            color: #8302de;
+            margin-bottom: 20px;
+        }
+        .content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 10px;
+            }
+            .nav-links li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <img src="LegendaryOS-PixelArt.png" alt="LegendaryOS Logo">
+        <ul class="nav-links">
+            <li><a href="index.html">Strona Główna</a></li>
+            <li><a href="download.html">Download</a></li>
+            <li><a href="about-legendaryos.html">About LegendaryOS</a></li>
+            <li><a href="information-legendaryos.html">LegendaryOS Information</a></li>
+        </ul>
+    </nav>
+    <section class="content">
+        <h1>O LegendaryOS</h1>
+        <p>LegendaryOS to system operacyjny stworzony z pasją do gier. Bazując na Ubuntu (non-LTS), łączymy stabilność z najnowszymi technologiami, aby dostarczyć graczom najlepsze doświadczenie.</p>
+        <p>Nasz zespół skupia się na optymalizacji wydajności, wsparciu dla szerokiej gamy gier oraz tworzeniu intuicyjnego interfejsu, który sprawia, że granie na Linuxie jest proste i przyjemne.</p>
+    </section>
+</body>
+</html>
