@@ -4,115 +4,131 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LegendaryOS - Download</title>
-    <link rel="icon" type="image/png" href="LegendaryOS-nobackground.png.png">
+    <link rel="icon" type="image/png" href="LegendaryOS-nobackground.png">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
         body {
-            background-color: #09023b;
-            color: #ffffff;
-            line-height: 1.6;
+            background: linear-gradient(180deg, #0a0a23 0%, #1b1446 100%);
+            position: relative;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><circle cx="1" cy="1" r="0.5" fill="rgba(255,255,255,0.2)"/></svg>') repeat;
+            opacity: 0.15;
+            z-index: -1;
         }
         .navbar {
-            background: linear-gradient(to right, #10047d, #220dc4);
-            padding: 15px 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        }
-        .navbar img {
-            height: 60px;
-            transition: transform 0.3s;
-        }
-        .navbar img:hover {
-            transform: scale(1.1);
-        }
-        .nav-links {
-            list-style: none;
-            display: flex;
-        }
-        .nav-links li {
-            margin-left: 20px;
+            background: linear-gradient(to right, #1b1446, #3b2a8b);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
         .nav-links a {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 18px;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
+            position: relative;
+            transition: all 0.3s ease;
         }
-        .nav-links a:hover {
-            background-color: #8302de;
-            color: #ffffff;
+        .nav-links a:hover, .nav-links a.active {
+            color: #a855f7;
+            text-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
+        }
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 2px;
+            background: #a855f7;
         }
         .content {
-            text-align: center;
-            padding: 50px 20px;
-            max-width: 800px;
-            margin: 0 auto;
+            background: radial-gradient(circle at center, #3b2a8b, #0a0a23);
+            position: relative;
+            overflow: hidden;
         }
-        .content h1 {
-            font-size: 36px;
-            color: #8302de;
-            margin-bottom: 20px;
+        .content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="2" cy="2" r="1" fill="rgba(168,85,247,0.2)"/></svg>') repeat;
+            opacity: 0.2;
         }
-        .content p {
-            font-size: 18px;
-            margin-bottom: 30px;
+        .cta-btn {
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+            transition: all 0.3s ease;
         }
-        .download-btn {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: #220dc4;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 18px;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        .download-btn:hover {
-            background-color: #8302de;
+        .cta-btn:hover {
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.8);
             transform: translateY(-3px);
         }
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .nav-links {
-                flex-direction: column;
-                width: 100%;
-                margin-top: 10px;
-            }
-            .nav-links li {
-                margin: 10px 0;
-            }
+        .hamburger div {
+            transition: all 0.3s ease;
+        }
+        .hamburger.active .line1 {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        .hamburger.active .line2 {
+            opacity: 0;
+        }
+        .hamburger.active .line3 {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+        .nav-links-mobile {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .nav-links-mobile.active {
+            transform: translateX(0);
         }
     </style>
 </head>
-<body>
-    <nav class="navbar">
-        <img src="LegendaryOS-PixelArt.png" alt="LegendaryOS Logo">
-        <ul class="nav-links">
-            <li><a href="index.html">Strona Główna</a></li>
-            <li><a href="download.html">Download</a></li>
-            <li><a href="about-legendaryos.html">About LegendaryOS</a></li>
-            <li><a href="information-legendaryos.html">LegendaryOS Information</a></li>
+<body class="text-white font-roboto">
+    <nav class="navbar sticky top-0 z-50 px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center">
+            <img src="LegendaryOS-PixelArt.png" alt="LegendaryOS Logo" class="h-16 transform transition-transform hover:scale-110">
+        </div>
+        <div class="hamburger md:hidden cursor-pointer">
+            <div class="line1 w-8 h-1 bg-white mb-1"></div>
+            <div class="line2 w-8 h-1 bg-white mb-1"></div>
+            <div class="line3 w-8 h-1 bg-white"></div>
+        </div>
+        <ul class="nav-links hidden md:flex space-x-6">
+            <li><a href="index.html" class="text-white text-lg px-4 py-2 rounded-md font-orbitron">Strona Główna</a></li>
+            <li><a href="download.html" class="text-white text-lg px-4 py-2 rounded-md font-orbitron active">Download</a></li>
+            <li><a href="about-legendaryos.html" class="text-white text-lg px-4 py-2 rounded-md font-orbitron">About LegendaryOS</a></li>
+            <li><a href="information-legendaryos.html" class="text-white text-lg px-4 py-2 rounded-md font-orbitron">LegendaryOS Information</a></li>
         </ul>
     </nav>
-    <section class="content">
-        <h1>Pobierz LegendaryOS</h1>
-        <p>Pobierz najnowszą wersję LegendaryOS i ciesz się zoptymalizowanym systemem dla graczy. Wersja oparta na Ubuntu (non-LTS) zapewnia wysoką wydajność i kompatybilność.</p>
-        <a href="#" class="download-btn">Pobierz teraz</a>
+    <ul class="nav-links-mobile hidden fixed top-0 right-0 h-full w-3/4 bg-gray-900 p-6 md:hidden z-40">
+        <li class="mb-4"><a href="index.html" class="text-white text-lg px-4 py-2 rounded-md font-orbitron">Strona Główna</a></li>
+        <li class="mb-4"><a href="download.html" class="text-white text-lg px-4 py-2 rounded-md font-orbitron active">Download</a></li>
+        <li class="mb-4"><a href="about-legendaryos.html" class="text-white text-lg px-4 py-2 rounded-md font-orbitron">About LegendaryOS</a></li>
+        <li class="mb-4"><a href="information-legendaryos.html" class="text-white text-lg px-4 py-2 rounded-md font-orbitron">LegendaryOS Information</a></li>
+    </ul>
+    <section class="content text-center py-16 px-4 max-w-4xl mx-auto relative" data-aos="fade-up">
+        <h1 class="text-4xl md:text-5xl font-bold text-purple-400 font-orbitron mb-6" data-aos="fade-down">Pobierz LegendaryOS</h1>
+        <p class="text-lg md:text-xl mb-8" data-aos="fade-up" data-aos-delay="200">Pobierz najnowszą wersję LegendaryOS i ciesz się zoptymalizowanym systemem dla graczy. Wersja oparta na Ubuntu (non-LTS) zapewnia wysoką wydajność i kompatybilność.</p>
+        <a href="#" class="cta-btn inline-block bg-purple-600 text-white px-8 py-4 rounded-lg text-lg font-semibold font-orbitron hover:bg-purple-700" data-aos="zoom-in" data-aos-delay="400">Pobierz teraz</a>
     </section>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        const hamburger = document.querySelector('.hamburger');
+        const navLinksMobile = document.querySelector('.nav-links-mobile');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinksMobile.classList.toggle('hidden');
+            navLinksMobile.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
