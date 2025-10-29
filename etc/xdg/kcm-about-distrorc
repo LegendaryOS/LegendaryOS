@@ -1,1 +1,5 @@
-
+[General]
+LogoPath=/usr/share/LegendaryOS/LegendaryOS.png
+Name=LegendaryOS
+Website=https://legendaryos.github.io/LegendaryOS-Website/index.html
+Variant=KDE Official Edition
